@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root 'users#index'
+  get '/auth/facebook/callback' => 'sessions#create'
+
 
   resources :users, only: [:new, :show] do
     resources :reports, only: [:show, :new]

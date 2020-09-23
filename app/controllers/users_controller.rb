@@ -1,7 +1,15 @@
 class UsersController < ApplicationController
-    before_action :require_login, except: [:new, :create]
+    before_action :require_login, except: [:new, :create, :home]
+
+    def index
+        if session[:user_id]
+            @user = User.find(session[:user_id])
+        end
+        end
+    
 
     def new
+
       @user = User.new
     end
   

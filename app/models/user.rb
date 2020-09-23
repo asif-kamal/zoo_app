@@ -3,5 +3,5 @@ class User < ApplicationRecord
     has_many :reports
     accepts_nested_attributes_for :reports
     has_secure_password
-
+    devise :omniauthable, :omniauth_providers => [:facebook]
 end
