@@ -1,0 +1,16 @@
+<h1>Sign up</h1>
+
+<%= form_with model: @user do |user_form| %>
+    Username: <%= user_form.text_field :username %>
+    Role: <%= user_form.text_field :role %>
+    Section  <%= user_form.collection_select :_id, Section.all, :id, :name %>
+
+    <%= fields_for :reports do |report_form| %>
+      Topic: <%= report_form.text_field :topic %>
+      Observations: <%= report_form.text_area :observations %>
+      <% end %>
+ 
+      <%= user_form.submit %>
+
+    <% end %>
+ 
