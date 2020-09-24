@@ -7,12 +7,28 @@ class SessionsController < ApplicationController
             u.email = auth['info']['email']
             u.image = auth['info']['image']
           end
-    
+          
+          if @user
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
+          else
+          @user = User.find_by(:name => params[:user][:name])
+            if @user && @user.authenticate(params[:password])
+              session[:user_id] = @user.id
+              redirect_to user_path(@user)
+            else
+                 render :new
+            end
            #binding.pry
-       
-          session[:user_id] = @user.id
-       
-          render 'users/index'
+          end
+          
+        end
+
+        def destroy
+          if current_user
+            session.delete :user_id
+            redirect_to root_url
+          end
         end
        
         private

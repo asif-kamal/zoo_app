@@ -13,7 +13,7 @@
   <h2>Facebook UID: <%= @user.uid %></h2>
   <img src="<%= @user.image %>">
 <% else %>
-     <%= link_to('Sign up on our website.', user_new_path) %>
+     <%= link_to('Sign up on our website.', new_user_path) %>
   <%= link_to('Log in with Facebook.', '/auth/facebook') %>
 <% end %>
 
