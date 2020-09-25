@@ -4,8 +4,10 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     t.string :username
     t.string :role 
     t.string :section 
-    t.string :email 
+    t.string :email
     t.string :password_digest
+    t.string :provider 
+    t.string :uid
     t.integer :experience_lvl
     t.integer :section_id
 

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  root 'welcome#home'
-  get '/auth/facebook/callback' => 'sessions#create'
 
+
+  root 'welcome#home'
+  
+  get 'auth/:provider/callback',  to: 'sessions#create_from_omniauth'
 
   resources :users, only: [:new, :show] do
     resources :reports, only: [:show, :new]
