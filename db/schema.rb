@@ -42,8 +42,6 @@ ActiveRecord::Schema.define(version: 2020_09_21_232440) do
     t.string "section"
     t.string "email"
     t.string "password_digest"
-    t.string "provider"
-    t.string "uid"
     t.integer "experience_lvl"
     t.integer "section_id"
     t.datetime "created_at", precision: 6, null: false

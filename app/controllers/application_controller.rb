@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
     helper_method :current_user, :require_login
 
+    private
   def current_user
     # The session[:user_id] has been set
     if session[:user_id].present?
