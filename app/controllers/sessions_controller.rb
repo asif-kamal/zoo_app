@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       render '/users/edit'
     else
+      flash[:notice] = 'Google Login Failed'
       redirect_to '/users/new'
+
     end
     
   end

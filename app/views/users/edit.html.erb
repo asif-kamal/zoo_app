@@ -2,7 +2,4 @@
 
 <%= @user.username %>
 
-    <%= render: 'form' %>
-
-    
- 
+<%= render partial: "users/user", locals: {user: @user} %>

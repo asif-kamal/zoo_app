@@ -1,10 +1,8 @@
 <h1>Sign up</h1>
 
+<%= render partial: "user", locals: {user: @user} %>
 
 
-<%= form_with model: @user do |user_form| %>
-    Username: <%= user_form.text_field :username %>
-    <%= render 'form' %>
 
-    <% end %>
+   
  
