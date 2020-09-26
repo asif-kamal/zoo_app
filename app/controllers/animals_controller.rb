@@ -4,7 +4,7 @@ class AnimalsController < ApplicationController
         @animals = Animal.all
     end
     
-    def new 
+    def new
     end
 
     def create
