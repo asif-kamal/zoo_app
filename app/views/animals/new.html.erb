@@ -1,5 +1,4 @@
-
-    <%= form_with model: user do |user_form| %>
+<%= form_with model: @animal do |animal_form| %>
     Username: <%= user_form.text_field :username %>
     Password: <%= user_form.password_field :password %>
     Password Confirmation: <%= user_form.password_field :password_confirmation %>
@@ -8,6 +7,3 @@
 
       <%= user_form.submit %>
       <% end %>
-
-    
- 
