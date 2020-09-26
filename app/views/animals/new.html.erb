@@ -1,9 +1,8 @@
 <%= form_with model: @animal do |animal_form| %>
-    Username: <%= user_form.text_field :username %>
-    Password: <%= user_form.password_field :password %>
-    Password Confirmation: <%= user_form.password_field :password_confirmation %>
-    Role: <%= user_form.text_field :role %>
-    Section  <%= user_form.collection_select(:section_id, Section.all, :id, :name) %>
+    Name: <%= user_form.text_field :name %>
+    Health rating: <%= animal_form.number_field :health_rating, min: 1, max: 100 %>
+    Declined vibrancy: <%= user_form.checkbox :decreased_livelihood %>
+    Section:  <%= user_form.collection_select(:section_id, Section.all, :id, :name) %>
 
-      <%= user_form.submit %>
+      <%= animal_form.submit %>
       <% end %>
