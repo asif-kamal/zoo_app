@@ -2,7 +2,7 @@
     <%= form_with model: user do |user_form| %>
     Username: <%= user_form.text_field :username %>
     Role: <%= user_form.text_field :role %>
-    Section  <%= user_form.collection_select :_id, Section.all, :id, :name %>
+    Section  <%= user_form.collection_select(:section_id, Section.all, :id, :name) %>
 
       <%= user_form.submit %>
       <% end %>
