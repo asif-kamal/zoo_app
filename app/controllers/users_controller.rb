@@ -10,11 +10,14 @@ class UsersController < ApplicationController
     end
   
     def create
-      user = User.create(user_params)
-      if user
-        session[:user_id] = user.id
-        redirect_to user_path(user)
+      @user = User.new(user_params)
+      # params.delete(:section_id)
+      # byebug
+      if @user.save
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
       else
+        #byebug
         render :new
       end
     end
@@ -30,7 +33,7 @@ class UsersController < ApplicationController
   
   private
   def user_params
-    params.require(:user).permit(:username, :role, :section, :email, :password_digest, :experience_lvl, :section_id)
+    params.require(:user).permit(:username, :role, :email, :password, :password_confirmation, :experience_lvl, :section_id)
   end
  
 
