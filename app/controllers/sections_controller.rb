@@ -6,7 +6,7 @@ class SectionsController < ApplicationController
 
     def create
         @section = Section.new(section_params)
-        
+        @section.user_id = current_user.id
         if @section.save
             redirect_to section_path(@section)
         else
@@ -21,7 +21,7 @@ class SectionsController < ApplicationController
     private
 
     def section_params
-        params.require(:section).permit(:name, :environment)
+        params.require(:section).permit(:name, :environment, :user_id)
     end
     
     #create all the actions so I can navigate through the views 
