@@ -1,4 +1,4 @@
 class Report < ApplicationRecord
     belongs_to :user
-    belongs_to :section
+    belongs_to :animal
 end

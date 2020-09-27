@@ -4,9 +4,7 @@ class CreateReports < ActiveRecord::Migration[6.0]
       t.string :topic
       t.text :observations 
       t.integer :user_id 
-      t.integer :section_id  
-
-
+      t.integer :animal_id  
       t.timestamps
     end
   end

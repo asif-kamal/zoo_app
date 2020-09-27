@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_232440) do
     t.string "topic"
     t.text "observations"
     t.integer "user_id"
-    t.integer "section_id"
+    t.integer "animal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_232440) do
   create_table "sections", force: :cascade do |t|
     t.string "name"
     t.string "environment"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -43,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_09_21_232440) do
     t.string "email"
     t.string "password_digest"
     t.integer "experience_lvl"
-    t.integer "section_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

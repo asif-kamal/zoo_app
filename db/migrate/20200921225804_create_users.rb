@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     t.string :email
     t.string :password_digest
     t.integer :experience_lvl
-    t.integer :section_id
+    
 
     t.timestamps
     end

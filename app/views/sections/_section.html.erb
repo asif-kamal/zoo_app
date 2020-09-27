@@ -1,0 +1,15 @@
+<%= form_with model: section do |section_form| %>
+    Name: <%= section_form.collection_select(:section_id, Section.all, :id, :name)
+    Environment: <%= section_form.text_field :environment %>
+        <%= section_form.fields_for :users do |builder| %>
+            Username: <%= user_form.text_field :username %>
+            Email: <%= user_form.email_field :email %>
+            Password: <%= user_form.password_field :password %>
+            Password Confirmation: <%= user_form.password_field :password_confirmation %>
+            Role: <%= user_form.text_field :role %>
+            Experience Level(number of years): <%= user_form.number_field :experience_lvl %>
+            <% end %>
+      <%= section_form.submit %>
+      <% end %>
+
+
