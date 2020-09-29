@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
 
+  def new
+  end
+  
   def create_from_omniauth
     @user = User.from_omniauth(auth)
     #byebug
@@ -16,12 +19,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(:name => params[:user][:username])
+    
+    @user = User.find_by(:username => params[:username])
+    
       if @user && @user.authenticate(params[:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-           render :new
+          flash[:notice] = "Login Failed"
+          redirect_to '/login'
       end
   end
 

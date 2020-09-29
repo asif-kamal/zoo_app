@@ -2,20 +2,19 @@
 
 
 
-
+<% if current_user %>
+    <h1>You are Logged In: </h1>
+    <%= link_to current_user.username, user_path(current_user) %>
+<%end%>
 
 
 <h2> 'If you are a current zoo caregiver, please login.' </h2>
+<%= link_to "Login", '/login' %> 
 
-<% if current_user %>
-  <h1><%= @user.name %></h1>
-  <h2>Email: <%= @user.email %></h2>
-  <h2> UID: <%= @user.uid %></h2>
-  <img src="<%= @user.image %>">
-<% else %>
+
 <%= button_to "Sign in with Google", "/auth/google_oauth2" %>
 <%= link_to "Create an Account", new_user_path %>
   
-<% end %>
+
 
 

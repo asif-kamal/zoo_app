@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :sections
+    belongs_to :section
     has_many :reports
     has_many :animals, through: :reports
 

@@ -1,5 +1,9 @@
 class SectionsController < ApplicationController
 
+    def index
+        @sections = Section.all
+    end
+    
     def new
         @section = Section.new
     end
@@ -21,7 +25,7 @@ class SectionsController < ApplicationController
     private
 
     def section_params
-        params.require(:section).permit(:name, :environment, :user_id)
+        params.require(:section).permit(:name, :environment)
     end
     
     #create all the actions so I can navigate through the views 

@@ -7,16 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-sample_user = User.create(username: "Jiva", role: "Elephant Caregiver", email: "jiva34@hotmail.com", 
-                          password: "password", password_confirmation: "password", 
-                          experience_lvl: "22")
 
+Animal.create(name: "Elephants", health_rating: "7", section_id: 6)
+Animal.create(name: "Tigers", health_rating: "9", section_id: 2)
+Animal.create(name: "Birds of Paradise", health_rating: "3", section_id: 7)
+Animal.create(name: "Chipmunks", health_rating: "8", section_id: 5)
+Animal.create(name: "Eagles", health_rating: "4", section_id: 4)
+Animal.create(name: "Lizards", health_rating: "5", section_id: 6)
+Animal.create(name: "Cayote", health_rating: "7", section_id: 1)
+Animal.create(name: "Penguins", health_rating: "7", section_id: 3)
           
 
 
-Section.create(name: 'Terrain', environment: 'Rock and sand', user_id: sample_user.id)
-Section.create(name: 'Jungle', environment: 'Humid, forested area', user_id: sample_user.id)
-Section.create(name: 'Tundra', environment: 'Cold, frozen land', user_id: sample_user.id)
-Section.create(name: 'Air Space', environment: 'Sparsely wooded area with open air to fly in', user_id: sample_user.id)
-Section.create(name: 'Marshland', environment: 'Wet earth near fresh water river', user_id: sample_user.id)
-
+Section.create(name: 'Terrain', environment: 'Rock and sand')
+Section.create(name: 'Jungle', environment: 'Humid, forested area')
+Section.create(name: 'Tundra', environment: 'Cold, frozen land')
+Section.create(name: 'Air Space', environment: 'Sparsely wooded area with open air to fly in')
+Section.create(name: 'Marshland', environment: 'Wet earth near fresh water river')
+Section.create(name: 'Flatlands', environment: 'Plains reminiscent of the Serengheti')
+Section.create(name: 'Seaside', environment: 'Sand near blue water and tropical trees')

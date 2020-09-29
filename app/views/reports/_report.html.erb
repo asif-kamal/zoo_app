@@ -1,0 +1,6 @@
+<%= form_with(model: [@user, report], local: true) do |report_form| %>
+    Topic: <%= report_form.text_field :topic %>
+    Observations: <%= report_form.text_area :observations %>
+    Animal Name: <%= report_form.collection_select(:animal_id, Animal.all, :id, :name) %>
+      <%= report_form.submit %>
+      <% end %>

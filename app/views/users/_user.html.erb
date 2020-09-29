@@ -5,7 +5,7 @@
     Password: <%= user_form.password_field :password %>
     Password Confirmation: <%= user_form.password_field :password_confirmation %>
     Role: <%= user_form.text_field :role %>
-    
+    Section Name: <%= user_form.collection_select(:section_id, Section.all, :id, :name) %>
     Experience Level(number of years): <%= user_form.number_field :experience_lvl %>
       <%= user_form.submit %>
       <% end %>

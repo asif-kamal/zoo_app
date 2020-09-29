@@ -1,5 +1,10 @@
 <h1> Welcome to your Zookeeper Account </h1>
 
-<%= @user.username %>
+<%= @user.username %><br>
+ Role: <%= @user.role %><br>
+ Experience in years: <%= @user.experience_lvl %><br>
+ Email: <%= @user.email %><br>
+ Section name: <%= @user.section.name %><br>
+ Section environment: <%= @user.section.environment %><br>
 
-<%= link_to "What section of the Zoo do you work in?", new_section_path %>
+ <%= link_to "Create a report for the animals you work with",  new_user_report_path(@user) %> 

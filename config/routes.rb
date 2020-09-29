@@ -5,12 +5,18 @@ Rails.application.routes.draw do
   
   get 'auth/:provider/callback',  to: 'sessions#create_from_omniauth'
 
-  resources :users, only: [:new, :show] do
-    resources :reports, only: [:show, :new]
+  resources :users do
+    resources :reports
   end
   resources :users
   resources :reports
-  resources :sections
+  resources :sections, only: [:index] do
+    resources :users, only: [:new, :show]
+  end
+
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  
   resources :animals
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
