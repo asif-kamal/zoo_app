@@ -1,10 +1,7 @@
-<h1> Animal Index Currently Under Observation </h1>
+<h1> Animal-Life Currently Under Observation </h1>
 
 
 
 <%= link_to "Add a new animal for observation", new_animal_path %>
 
 
-<% @animals.each do |animal| %>
-    <%= link_to "#{animal.name}", animal_path(animal) %>
-    <% end %>

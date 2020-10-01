@@ -7,7 +7,11 @@ class ReportsController < ApplicationController
         # if params[:animal_id]
         #     @animal = Animal.find_by(id: params[:animal_id])
         #end
-            @reports = Report.all
+            @reports = if params[:query]
+                Report.search(params[:query])
+              else
+                Report.all
+              end
             @user = current_user
     end
     

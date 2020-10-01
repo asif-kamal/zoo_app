@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <h1>All Reports</h1>
-
+<br>
+<%= form_tag(reports_path, method: "get") do %>
+    <%= label_tag(:query, "Search for:") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("Search") %>
+  <% end %>
 <br>
 <table>
   <thead>
