@@ -1,8 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1>All Reports</h1>
-
-<br>
 <table>
   <thead>
     <tr>
@@ -13,22 +8,16 @@
   </thead>
 
   <tbody>
-    <% @reports.each do |report| %>
+    <% reports.each do |report| %>
       <tr>
         <td><%= report.user.username %></td>
         <td><%= report.animal.name %></td>
         <td><%= report.topic %></td>
         <td><%= report.observations %></td>
-        </tr>
-        <% end %>
-
+        
+        <td><%= link_to 'Edit Post', edit_user_report_path(user, report) %></td>
+        <td><%= link_to 'Destroy Post', [user, report], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
   </tbody>
-  <tr>
-  <td><%= link_to 'Back to User Account', [@user] %></td>
-       
-  </tr>
 </table>
-
-<br>
-
-<%= link_to 'New Report', new_user_report_path(@user) %>

@@ -1,3 +1,18 @@
+<% if @section.user.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@section.user.errors.count, "error") %>
+      prohibited this post from being saved:
+    </h2>
+ 
+    <ul>
+    <% @section.user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_with model: section do |section_form| %>
     Name: <%= section_form.collection_select(:user_id, Section.all, :id, :name) %>
     Environment: <%= section_form.collection_select(:user_id, Section.all, :id, :environment) %>

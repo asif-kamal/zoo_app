@@ -7,7 +7,7 @@ class ReportsController < ApplicationController
         # if params[:animal_id]
         #     @animal = Animal.find_by(id: params[:animal_id])
         #end
-            @reports = @user.reports
+            @reports = Report.all
             @user = current_user
     end
     
@@ -20,8 +20,8 @@ class ReportsController < ApplicationController
 
     def create
         @report = @user.reports.build(report_params)
-        if @report.save && params[:user_id]
-            redirect_to user_reports_path
+        if @report.save 
+            redirect_to reports
         else
             render :new
         end

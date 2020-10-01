@@ -1,8 +1,8 @@
 <%= form_with model: @animal do |animal_form| %>
-    Name: <%= user_form.text_field :name %>
+    Name: <%= animal_form.text_field :name %>
     Health rating: <%= animal_form.number_field :health_rating, min: 1, max: 100 %>
-    Declined vibrancy: <%= user_form.checkbox :decreased_livelihood %>
-    Section:  <%= user_form.collection_select(:section_id, Section.all, :id, :name) %>
+  
+    Section:  <%= animal_form.collection_select(:section_id, Section.all, :id, :name) %>
 
       <%= animal_form.submit %>
       <% end %>

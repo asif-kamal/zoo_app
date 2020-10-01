@@ -2,6 +2,10 @@ class User < ApplicationRecord
     belongs_to :section
     has_many :reports
     has_many :animals, through: :reports
+    validates :username, presence: true
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validate :password_requirements_are_met
+    
 
     accepts_nested_attributes_for :reports
     has_secure_password
@@ -18,6 +22,19 @@ class User < ApplicationRecord
         #   user.uid = auth["uid"]
         #   user.name = auth["info"]["name"]
         # end
+      end
+
+      def password_requirements_are_met
+        rules = {
+          " must contain at least one lowercase letter"  => /[a-z]+/,
+          " must contain at least one uppercase letter"  => /[A-Z]+/,
+          " must contain at least one digit"             => /\d+/,
+          " must contain at least one special character" => /[^A-Za-z0-9]+/
+        }
+      
+        rules.each do |message, regex|
+          errors.add( :password, message ) unless password.match( regex )
+        end
       end
     
 end

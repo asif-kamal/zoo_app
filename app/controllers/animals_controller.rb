@@ -9,9 +9,9 @@ class AnimalsController < ApplicationController
     end
 
     def create
-        animal = Animal.new(animal_params)
+        @animal = Animal.new(animal_params)
         if @animal.save
-            redirect_to animal_path(@animal)
+            redirect_to new_report_path
         else
             render :new
         end
@@ -27,6 +27,6 @@ class AnimalsController < ApplicationController
     private
 
     def animal_params
-        params.require(:animal).permit(:name, :health_rating, :decreased_livelihood)
+        params.require(:animal).permit(:name, :health_rating, :section_id)
     end
 end
