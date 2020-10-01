@@ -4,5 +4,7 @@ class Animal < ApplicationRecord
     has_many :users, through: :reports
     validates :name, presence: true
     
-    
+    def self.search(query)
+        where("name like ?", "%#{query}%")
+      end
 end

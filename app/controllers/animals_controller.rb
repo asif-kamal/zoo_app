@@ -1,7 +1,12 @@
 class AnimalsController < ApplicationController
     
     def index
-        @animals = Animal.all
+        
+        if params[:query]
+            @animals = Animal.search(params[:query])
+          else
+            @animals = Animal.all
+          end
     
     end
     

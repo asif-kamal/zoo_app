@@ -9,15 +9,23 @@
 
   <tbody>
     <% reports.each do |report| %>
-      <tr>
-        <td><%= report.user.username %></td>
-        <td><%= report.animal.name %></td>
-        <td><%= report.topic %></td>
-        <td><%= report.observations %></td>
-        
-        <td><%= link_to 'Edit Post', edit_user_report_path(user, report) %></td>
-        <td><%= link_to 'Destroy Post', [user, report], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
+        Report submitted by:
+        <%= report.user.username %>
+        <br>
+        Report submitted on: 
+        <%= report.animal.name %>
+        <br>
+        Topic: 
+        <%= report.topic %>
+        <br>
+        Observations: 
+        <%= report.observations %>
+        <br>
+        <%= link_to 'Edit Post', edit_user_report_path(user, report) %>
+        <br>
+        <%= link_to 'Destroy Post', [user, report], method: :delete, data: { confirm: 'Are you sure?' } %>
+      
     <% end %>
   </tbody>
 </table>

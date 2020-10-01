@@ -11,9 +11,12 @@
  <%= link_to "Create a report for the animals you work with",  new_report_path(@user) %>
  <br> 
  <br>
- <%= link_to "See all reports", reports_path %>
+ <%= link_to "See reports submitted by all users", reports_path %>
  <br>
+ <%= link_to "Search reports by name of species", animals_path %>
 <br>
  <%= link_to "Log out", logout_path, method: :delete %>
+
+ <h2>All my reports </h2>
 
  <%= render partial: 'reports/reports', locals: {user: @user, reports: @user.reports} %>

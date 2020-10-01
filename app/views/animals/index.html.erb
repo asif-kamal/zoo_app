@@ -1,7 +1,17 @@
-<h1> Animal-Life Currently Under Observation </h1>
+<h1> Search Reports by Animal </h1>
 
 
+<%= form_tag(animals_path, method: "get") do %>
+    <%= label_tag(:query, "Search by name of animal:") %>
+    <%= text_field_tag(:query) %>
+    <%= submit_tag("Search") %>
+  <% end %>
 
+
+<h1>Search Results:</h1>
+<h3><% @animals.order(:name).each do |animal| %>
+  <p><%=link_to animal.name, animal_reports_path(animal)%></p>
+<% end %></h3>
 <%= link_to "Add a new animal for observation", new_animal_path %>
 
 

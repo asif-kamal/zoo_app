@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   root 'welcome#home'
   
   get 'auth/:provider/callback',  to: 'sessions#create_from_omniauth'
-  # resources :animals do
-  #   resources :reports
-  # end
+  resources :animals do
+    resources :reports
+  end
 
   resources :users do
     resources :reports

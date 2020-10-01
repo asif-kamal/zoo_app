@@ -4,15 +4,13 @@ class ReportsController < ApplicationController
     before_action :get_animal
 
     def index
-        # if params[:animal_id]
-        #     @animal = Animal.find_by(id: params[:animal_id])
-        #end
-            @reports = if params[:query]
-                Report.search(params[:query])
-              else
-                Report.all
-              end
-            @user = current_user
+        if params[:animal_id]
+            @reports = Animal.find_by(id: params[:animal_id]).reports
+        else
+            @reports = Report.all
+        end
+             
+           
     end
     
     def new
@@ -25,7 +23,7 @@ class ReportsController < ApplicationController
     def create
         @report = @user.reports.build(report_params)
         if @report.save 
-            redirect_to reports
+            redirect_to reports_path
         else
             render :new
         end
@@ -60,7 +58,7 @@ class ReportsController < ApplicationController
     end
     
     def report_params
-        params.require(:report).permit(:topic, :observations, :user_id, :animal_id)
+        params.require(:report).permit(:topic, :observations, :user_id, :animal_id, :query)
     end
 
     def set_report

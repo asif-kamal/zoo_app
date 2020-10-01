@@ -4,7 +4,4 @@ class Report < ApplicationRecord
     validates :topic, presence: true
     validates :observations, presence: true
 
-    def self.search(query)
-        where("name like ?", "%#{query}%")
-      end
 end
