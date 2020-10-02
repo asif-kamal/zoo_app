@@ -1,5 +1,5 @@
 <h1>Create a new report on the animals you work with.</h1>
 
-<%= render partial: "form", locals: {report: @report} %>
+<%= render partial: "form", locals: {animal: @animal, report: @report} %>
 
 <%= link_to "Click here if you are working with animals not listed.", new_animal_path %>

@@ -4,8 +4,8 @@
  Health Rating: <%= @animal.health_rating %><br>
  <% @animal.reports.each do |report| %>
 
-    <%= render partial: 'reports/reports', locals: {report: report} %>
+    <%= render partial: 'reports', locals: {report: report} %>
      <% end %>
 <br>
- <%= link_to "Back",  new_animal_report_path(@animal) %>
+ <%= link_to "Back to species index",  animals_path %>
  <br> 

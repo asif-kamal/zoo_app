@@ -1,15 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Reports from all Zookeepers</h1>
+<h1>Reports on <%= @animal.name %></h1>
 <br>
 
 <br>
 <table>
   <thead>
     <tr>
-      
-      <th></th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -32,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Report', new_user_report_path(@user) %>
+<%= link_to 'New Report', new_animal_report_path(@user) %>
