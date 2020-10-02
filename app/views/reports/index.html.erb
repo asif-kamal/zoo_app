@@ -6,7 +6,7 @@
 <br>
 <table>
   <thead>
-    
+    <tr>
       
       <th></th>
       <th colspan="3"></th>
@@ -15,22 +15,14 @@
 
   <tbody>
     <% @reports.each do |report| %>
-      
-        <%= report.user.username %>
-        <br>
-        <%= report.animal.name %>
-        <br>
-        <%= report.topic %>
-        <br>
-        <%= report.observations %>
-        <br>
-        
-        <br>
-        </tr>
-        <% end %>
 
+<%= render partial: 'reports', locals: {report: report} %>
+ <% end %>
   </tbody>
-  
+</table>
+
+
+
   <%= link_to 'Back to User Account', [@user] %>
   <br>
  

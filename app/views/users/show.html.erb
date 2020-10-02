@@ -19,4 +19,24 @@
 
  <h2>All my reports </h2>
 
- <%= render partial: 'reports/reports', locals: {user: @user, reports: @user.reports} %>
+ <table>
+  <thead>
+    <tr>
+      
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% @user.reports.each do |report| %>
+
+<%= render partial: 'reports/reports', locals: {user: @user, report: report} %>
+ 
+<%= link_to 'Edit Post', edit_user_report_path(@user, report) %>
+<br>
+<%= link_to 'Destroy Post', [@user, report], method: :delete, data: { confirm: 'Are you sure?' } %>
+
+<% end %>
+</tbody>
+</table>
