@@ -30,7 +30,7 @@ class ReportsController < ApplicationController
         # else
             @report = @user.reports.build(report_params)
                 if @report.save 
-                    redirect_to reports_path
+                    redirect_to user_path(@user)
                 else
                     render :new
                 end
@@ -54,7 +54,7 @@ class ReportsController < ApplicationController
 
     def destroy
        @report.destroy
-       redirect_to user_reports_path(@user)
+       redirect_to user_path(@user)
     end
 
     def show
