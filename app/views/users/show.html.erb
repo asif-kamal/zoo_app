@@ -1,4 +1,8 @@
-<h1> Welcome to your Zookeeper Account </h1>
+<h1> Welcome to your Zookeeper Account, <%= @user.username %><br></h1> 
+
+
+
+
 
 <%= @user.username %><br>
  Role: <%= @user.role %><br>
@@ -15,7 +19,7 @@
  <br>
  <%= link_to "Search reports by name of species", animals_path %>
 <br>
- <%= link_to "Log out", logout_path, method: :delete %>
+
 
  <h2>All my reports </h2>
 
