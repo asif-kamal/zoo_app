@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
     before_action :current_user
     before_action :set_report, only: [:show, :edit, :update, :destroy]
+    before_action :require_login
     # before_action :get_animal
 
     def index
