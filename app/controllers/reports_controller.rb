@@ -2,8 +2,7 @@ class ReportsController < ApplicationController
     before_action :current_user
     before_action :set_report, only: [:show, :edit, :update, :destroy]
     before_action :require_login
-    # before_action :get_animal
-
+    
     def index
         if get_animal
             @reports = get_animal.reports
@@ -14,28 +13,19 @@ class ReportsController < ApplicationController
     end
     
     def new
-        #byebug
         
-        # if get_animal
-        #     @report = @animal.reports.build
-        # end
         @report = @user.reports.build
     end
 
     def create
-        # if get_animal
-        #     @report = @user.get_animal.reports.build(report_params)
-        #     if @report.save 
-        #         redirect_to animal_path(@animal)
-        #     end
-        # else
+       
             @report = @user.reports.build(report_params)
                 if @report.save 
                     redirect_to user_path(@user)
                 else
                     render :new
                 end
-        # end
+       
     end
 
     def edit
