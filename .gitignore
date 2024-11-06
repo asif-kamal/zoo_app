@@ -43,3 +43,8 @@ yarn-debug.log*
 
 # Ignore application configuration
 /config/application.yml
+
+.early.coverage
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

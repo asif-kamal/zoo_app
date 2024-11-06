@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :users, only: [:new, :show]
   end
 
+  get 'animalhr', to: 'animals#animalhr'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'logout'  => 'sessions#destroy'

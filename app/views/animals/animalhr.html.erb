@@ -1,0 +1,8 @@
+<h1>List of all animals and their helth ratings </h1>
+
+<ul>
+<% @animals.each do |animal| %>
+   <li> <%= animal.name %></li> 
+   <li> <%= animal.health_rating %></li> 
+   <% end %>
+   </ul>

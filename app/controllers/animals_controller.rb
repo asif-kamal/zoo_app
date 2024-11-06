@@ -29,6 +29,9 @@ class AnimalsController < ApplicationController
         @animal = Animal.find_by(:id => params[:id])
     end
 
+    def animalhr
+        @animals = Animal.all
+    end
 
     
     private
